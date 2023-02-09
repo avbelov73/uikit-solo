@@ -1,6 +1,6 @@
 {
   "name": "@avbelov73/uikit-solo",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Solo UIKit library",
   "main": "dist/index.js",
   "files": [
@@ -10,6 +10,10 @@
   "author": "Andrey Belov",
   "license": "MIT",
   "dependencies": {},
+  "peerDependencies": {
+    "react": "17.0.0",
+    "react-dom": "17.0.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.20.12",
     "@rollup/plugin-commonjs": "^24.0.1",
@@ -26,8 +30,6 @@
     "@storybook/testing-library": "^0.0.13",
     "@types/react": "17.0.0",
     "babel-loader": "^8.3.0",
-    "react": "17.0.0",
-    "react-dom": "17.0.0",
     "rollup": "^3.14.0",
     "rollup-plugin-dts": "^5.1.1",
     "typescript": "4.3.5"
