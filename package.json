@@ -1,6 +1,6 @@
 {
   "name": "@avbelov73/uikit-solo",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Solo UIKit library",
   "main": "dist/index.min.js",
   "files": [
