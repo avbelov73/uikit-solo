@@ -1,9 +1,9 @@
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
-import dts from "rollup-plugin-dts";
 import packageJson from "./package.json" assert { type: "json" };
 import terser from "@rollup/plugin-terser";
+import excludeDependenciesFromBundle from "rollup-plugin-exclude-dependencies-from-bundle";
 
 export default [
     {
@@ -12,24 +12,16 @@ export default [
             {
                 file: packageJson.main,
                 format: "cjs",
-                sourcemap: true
+                sourcemap: true,
+                name: packageJson.version
             },
-            {
-                file: "dist/index.min.js",
-                format: "iife",
-                name: "version",
-                plugins: [terser()]
-            }
         ],
         plugins: [
+            excludeDependenciesFromBundle(),
             resolve(),
             commonjs(),
-            typescript({ tsconfig: "./tsconfig.json" })
+            typescript({ tsconfig: "./tsconfig.json" }),
+            terser(),
         ]
     },
-    {
-        input: "dist/cjs/types/index.d.ts",
-        output: [{ file: "dist/index.d.ts", format: "cjs" }],
-        plugins: [dts()]
-    }
 ]
